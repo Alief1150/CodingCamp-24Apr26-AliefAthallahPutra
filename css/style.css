@@ -1,0 +1,530 @@
+/* ============================================
+   CSS Variables – Light Mode (default)
+   ============================================ */
+:root {
+    --bg-gradient: linear-gradient(
+        135deg,
+        #c4b5fd 0%,
+        #818cf8 50%,
+        #6366f1 100%
+    );
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --text-primary: #1e1b4b;
+    --text-secondary: #6b7280;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --btn-secondary-bg: #e5e7eb;
+    --btn-secondary-text: #374151;
+    --input-bg: #f9fafb;
+    --input-border: #d1d5db;
+    --task-hover: #f3f4f6;
+    --delete-btn: #ef4444;
+    --time-color: #6366f1;
+    --modal-overlay-bg: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-gradient: linear-gradient(
+        135deg,
+        #1e1b4b 0%,
+        #312e81 50%,
+        #1e1b4b 100%
+    );
+    --card-bg: #1f2937;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --accent: #818cf8;
+    --accent-hover: #a5b4fc;
+    --btn-secondary-bg: #374151;
+    --btn-secondary-text: #d1d5db;
+    --input-bg: #374151;
+    --input-border: #4b5563;
+    --task-hover: #2d3748;
+    --delete-btn: #f87171;
+    --time-color: #818cf8;
+    --modal-overlay-bg: rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    padding: 24px 16px;
+    color: var(--text-primary);
+    transition: background 0.35s ease;
+}
+
+/* ============================================
+   Theme Toggle Button
+   ============================================ */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    z-index: 300;
+    transition:
+        transform 0.2s,
+        background 0.35s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover {
+    transform: scale(1.12) rotate(15deg);
+}
+
+/* ============================================
+   Container
+   ============================================ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================
+   Card
+   ============================================ */
+.card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    transition:
+        background 0.35s,
+        box-shadow 0.35s;
+}
+.card h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   Greeting Card
+   ============================================ */
+.greeting-card {
+    text-align: center;
+    padding: 32px 24px 24px;
+}
+.time {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--time-color);
+    letter-spacing: 3px;
+    line-height: 1;
+}
+.date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 10px 0 4px;
+}
+.greeting {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 4px 0 14px;
+}
+.btn-icon {
+    background: none;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+.btn-icon:hover {
+    background: var(--task-hover);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   Grid
+   ============================================ */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+.left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================
+   Focus Timer
+   ============================================ */
+.timer-card {
+    text-align: center;
+}
+.timer-display {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: var(--time-color);
+    letter-spacing: 3px;
+    margin: 6px 0 14px;
+}
+.timer-settings {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+.timer-settings input {
+    width: 62px;
+    padding: 4px 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    text-align: center;
+    margin-left: 6px;
+}
+.timer-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        transform 0.15s,
+        opacity 0.2s;
+}
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+.btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+}
+.btn-secondary:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+.btn-danger {
+    background: var(--delete-btn);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+}
+.btn-danger:hover {
+    opacity: 0.85;
+}
+.btn-edit {
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+}
+.btn-edit:hover {
+    opacity: 0.8;
+}
+.btn-save {
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+}
+
+/* ============================================
+   Quick Links
+   ============================================ */
+.link-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+.link-input-row input {
+    flex: 1;
+    min-width: 80px;
+    padding: 8px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.88rem;
+}
+.links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.link-pill-wrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.link-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.link-pill:hover {
+    background: var(--accent-hover);
+}
+.link-remove {
+    background: var(--delete-btn);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+.link-remove:hover {
+    opacity: 0.8;
+}
+
+/* ============================================
+   Tasks Card
+   ============================================ */
+.tasks-card {
+    display: flex;
+    flex-direction: column;
+}
+.task-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.task-input-row input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    transition: border-color 0.2s;
+}
+.task-input-row input.input-error {
+    border-color: var(--delete-btn) !important;
+}
+.sort-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+}
+.sort-row select {
+    padding: 4px 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.84rem;
+    cursor: pointer;
+}
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+.task-list::-webkit-scrollbar {
+    width: 4px;
+}
+.task-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.task-list::-webkit-scrollbar-thumb {
+    background: var(--input-border);
+    border-radius: 4px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.task-item:hover {
+    background: var(--task-hover);
+}
+.task-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--accent);
+    flex-shrink: 0;
+}
+.task-text {
+    flex: 1;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    word-break: break-word;
+}
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+.task-edit-input {
+    flex: 1;
+    padding: 4px 8px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    outline: none;
+}
+.task-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+/* Focus styles */
+input:focus,
+select:focus {
+    outline: 2px solid var(--accent);
+    border-color: var(--accent);
+}
+
+/* ============================================
+   Modal
+   ============================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay-bg);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-box {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 28px;
+    width: 320px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    animation: pop-in 0.2s ease;
+}
+@keyframes pop-in {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.modal-box h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+.modal-box input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+.modal-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .time {
+        font-size: 2.4rem;
+    }
+    .timer-display {
+        font-size: 2.8rem;
+    }
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -1,6 +1,8 @@
 <p align="center">
   <img src="assets/Logo_revou.png" alt="RevoU logo" width="150" />
-  &nbsp;&nbsp;
+</p>
+
+<p align="center">
   <img src="assets/codingcamp-logo.svg" alt="CodingCamp Dashboard logo" width="320" />
 </p>
 
